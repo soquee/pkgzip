@@ -4,6 +4,14 @@ The **pkgzip** command bundles assets into a Go package.
 It is a fork of [statik] that changes the API of the package to not require
 import side effects.
 
+This package uses the following import path:
+
+```go
+import (
+	"code.soquee.net/pkgzip"
+)
+```
+
 
 ## License
 
