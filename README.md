@@ -26,10 +26,12 @@ comment) to generate your assets package.
 It's probably easiest to do this from your Makefile like so:
 
 ```make
+ASSETS!=find myassetstree/
+
 mybin: internal/assetsfs/pkgzip.go
 	go build -o $@
 
-internal/assetsfs/pkgzip.go: $(MYASSETS)
+internal/assetsfs/pkgzip.go: $(ASSETS)
 	go generate tools.go
 ```
 
