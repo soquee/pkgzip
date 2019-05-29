@@ -20,11 +20,18 @@ import (
 )
 ```
 
-Then update your `go.mod` file with the specific version you want and run `go
-generate tools.go` (or wherever you put the comment) in your Makefile or other
-build tool configuration.
+Then update your `go.mod` file with the specific version you want (use `go get
+-u` to get the latest), and run `go generate tools.go` (or wherever you put the
+comment) to generate your assets package.
+It's probably easiest to do this from your Makefile like so:
 
-For more information on managing tooling with Go Modules, see [the wiki].
+```make
+mybin: internal/assetsfs/pkgzip.go
+	go build -o $@
+
+internal/assetsfs/pkgzip.go: $(MYASSETS)
+	go generate tools.go
+```
 
 
 ## License
